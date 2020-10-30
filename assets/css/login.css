@@ -1,0 +1,22 @@
+html,body{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background: url(../images/login_bg.jpg) no-repeat center/cover;
+}
+.loginAndRegBox{
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin: auto;
+    width: 400px;
+    height: 310px;
+    background-color: #fff;
+}
+.title-box{
+    height: 60px;
+    background: url(../images/login_title.png) no-repeat center;
+}
