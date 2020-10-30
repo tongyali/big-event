@@ -16,7 +16,12 @@ html,body{
     height: 310px;
     background-color: #fff;
 }
+/* 登录头部 */
 .title-box{
     height: 60px;
     background: url(../images/login_title.png) no-repeat center;
+}
+/* 登录 */
+.reg-box{
+    display: none;
 }
