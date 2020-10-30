@@ -25,3 +25,22 @@ html,body{
 .reg-box{
     display: none;
 }
+.layui-form{
+    padding: 0 30px;
+}
+.layui-form-item{
+    position: relative;
+  
+}
+.layui-input{
+    padding-left: 32px;
+}
+.layui-icon{
+    position: absolute;
+    top:10px;
+    left:10px;
+}
+.links{
+    display: flex;
+    justify-content: flex-end;
+}
