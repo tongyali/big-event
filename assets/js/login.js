@@ -19,20 +19,19 @@ $(function () {
         }
     })
 
-    let baseURL = 'http://ajax.frontend.itheima.net'
+    // let baseURL = 'http://ajax.frontend.itheima.net'
     let layer = layui.layer
 
     // 注册页面的ajax提交
     $('#form_reg').on('submit', function (e) {
         e.preventDefault()
-
         let data = {
             username: $('#form_reg [name=username]').val(),
             password: $('#form_reg [name=password]').val(),
         }
         $.ajax({
             type: 'POST',
-            url: baseURL + '/api/reguser',
+            url: '/api/reguser',
             data: data,
             success(res) {
                 console.log(res)
@@ -49,7 +48,7 @@ $(function () {
         e.preventDefault()
         $.ajax({
             type: 'POST',
-            url: 'http://ajax.frontend.itheima.net/api/login',
+            url: '/api/login',
             data: $(this).serialize(),
             success(res) {
                 if (res.status !== 0) {
