@@ -75,11 +75,11 @@ $(function () {
             count: total, //数据总数，从服务端得到
             limit: q.pagesize,
             curr: q.pagenum,
-            prev: '上一页',
-            next: '下一页',
-            skip: '',
+            limits: [2, 3, 5, 10],
+            layout: ['count', 'limit', 'prev', 'page', 'next', 'skip'],
             jump: function (obj, first) {
                 q.pagenum = obj.curr
+                q.pagesize = obj.limit
                 //首次不执行
                 if (!first) {
                     initTable()
@@ -87,5 +87,36 @@ $(function () {
             }
         });
     }
+    // 删除文章
+
+    $("tbody").on('click', '.btn-delete', function () {
+        // 获取页面删除按钮个数
+        let len = $(".btn-delete").length
+        console.log(len);
+        let id = $(this).attr('data-id')
+        // 弹出曾
+        layer.confirm('确定删除吗?', {
+            icon: 3,
+            title: '提示'
+        }, function (index) {
+            $.ajax({
+                method: 'GET',
+                url: '/my/article/delete/' + id,
+                success: function (res) {
+                    if (res.status !== 0) {
+                        return layer.mssg('删除文章失败！')
+                    }
+                    layer.msg('删除文章成功！')
+                    initTable()
+                }
+            })
+            if (len === 1) {
+                q.pagenum = q.pagenum === 1 ? q.pagenum - 1 : 1
+            }
+            layer.close(index);
+        })
+
+
+    })
 
 })
