@@ -16,7 +16,7 @@
     <div class="layui-card">
         <div class="layui-card-header">写文章</div>
         <div class="layui-card-body">
-            <form class="layui-form" action="">
+            <form class="layui-form" id="form-pub">
                 <!-- 文章标题 -->
                 <div class="layui-form-item">
                     <label class="layui-form-label">文章标题</label>
@@ -29,7 +29,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">文章类别</label>
                     <div class="layui-input-block">
-                        <select name="citycate_id" lay-verify="required">
+                        <select name="cate_id" lay-verify="required">
 
                         </select>
                     </div>
@@ -60,7 +60,7 @@
                             <div class="img-preview"></div>
                             <!-- 选择封面按钮 -->
                             <button type="button" class="layui-btn layui-btn-danger" id="select-btn">选择封面</button>
-                            <input type="file" name="" id="file-btn" style="display:none">
+                            <input type="file" name="" id="file-btn" style="display:none" accept="">
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,8 @@
                 <div class="layui-form-item">
                     <div class="layui-input-block">
                         <button class="layui-btn" lay-submit lay-filter="formDemo">发布</button>
-                        <button class="layui-btn layui-btn-primary" lay-submit lay-filter="formDemo">存为草稿</button>
+                        <button class="layui-btn layui-btn-primary" lay-submit lay-filter="formDemo"
+                            id="draft">存为草稿</button>
                     </div>
                 </div>
             </form>
