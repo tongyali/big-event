@@ -111,7 +111,7 @@ $(function () {
                 }
             })
             if (len === 1) {
-                q.pagenum = q.pagenum === 1 ? q.pagenum - 1 : 1
+                q.pagenum = q.pagenum === 1 ? 1 : q.pagenum - 1
             }
             layer.close(index);
         })
