@@ -97,6 +97,7 @@ $(function () {
                 }
                 layer.msg("发表文章成功!")
                 location.href = "/article/art_list.html"
+                window.parent.document.querySelector('[href="/article/art_list.html"]').click()
             }
         })
     }
