@@ -90,6 +90,7 @@ $(function () {
     // 删除文章
     $("tbody").on("click", ".btn-delete", function () {
         let id = $(this).attr("data-id")
+        let len = $(".btn-delete").length
         layer.confirm('确认删除?', function (index) {
             $.ajax({
                 method: "GET",
@@ -99,6 +100,9 @@ $(function () {
                         return layer.msg("删除文章列表失败!")
                     }
                     layer.msg("删除文章列表成功!")
+                    if (len === 1) {
+                        q.pagenum = q.pagenum === 1 ? 1 : q.pagenum - 1
+                    }
                     initTable()
                 }
             })
