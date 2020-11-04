@@ -16,7 +16,7 @@ $(function () {
         $("#file").click()
     })
     $("#file").on("change", function (e) {
-        // console.log(e.target.files);
+        console.log(e.target.files);
         let fileList = e.target.files
         if (fileList.length === 0) {
             return layer.msg('请选择上传图片！')

@@ -16,7 +16,7 @@ $(function () {
                     return layer.msg('获取文章分类失败')
                 }
                 layer.msg('获取文章分类成功！')
-                $("[name=citycate_id]").html(template('art-tem', res))
+                $("[name=cate_id]").html(template('art-tem', res))
                 form.render()
             }
         })
@@ -51,6 +51,7 @@ $(function () {
             .cropper('destroy') // 销毁旧的裁剪区域
             .attr('src', newImgURL) // 重新设置图片路径
             .cropper(options) // 重新初始化裁剪区域
+
     })
     // 定义状态变量 默认已发布
     let art_state = '已发布'
@@ -78,6 +79,7 @@ $(function () {
                 // 将裁剪的图片文件添加到FormData中
                 fd.append("cover_img", blob)
                 publishArticle(fd)
+
             })
     })
     // 发表文章

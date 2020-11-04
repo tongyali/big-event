@@ -88,35 +88,70 @@ $(function () {
         });
     }
     // 删除文章
-
-    $("tbody").on('click', '.btn-delete', function () {
-        // 获取页面删除按钮个数
-        let len = $(".btn-delete").length
-        console.log(len);
-        let id = $(this).attr('data-id')
-        // 弹出曾
-        layer.confirm('确定删除吗?', {
-            icon: 3,
-            title: '提示'
-        }, function (index) {
+    $("tbody").on("click", ".btn-delete", function () {
+        let id = $(this).attr("data-id")
+        layer.confirm('确认删除?', function (index) {
             $.ajax({
-                method: 'GET',
-                url: '/my/article/delete/' + id,
+                method: "GET",
+                url: "/my/article/delete/" + id,
                 success: function (res) {
                     if (res.status !== 0) {
-                        return layer.mssg('删除文章失败！')
+                        return layer.msg("删除文章列表失败!")
                     }
-                    layer.msg('删除文章成功！')
+                    layer.msg("删除文章列表成功!")
                     initTable()
                 }
             })
-            if (len === 1) {
-                q.pagenum = q.pagenum === 1 ? 1 : q.pagenum - 1
-            }
             layer.close(index);
-        })
-
-
+        });
     })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // $("tbody").on('click', '.btn-delete', function () {
+    //     // 获取页面删除按钮个数
+    //     let len = $(".btn-delete").length
+    //     console.log(len);
+    //     let id = $(this).attr('data-id')
+    //     // 弹出曾
+    //     layer.confirm('确定删除吗?', {
+    //         icon: 3,
+    //         title: '提示'
+    //     }, function (index) {
+    //         $.ajax({
+    //             method: 'GET',
+    //             url: '/my/article/delete/' + id,
+    //             success: function (res) {
+    //                 if (res.status !== 0) {
+    //                     return layer.mssg('删除文章失败！')
+    //                 }
+    //                 layer.msg('删除文章成功！')
+    //                 initTable()
+    //             }
+    //         })
+    //         if (len === 1) {
+    //             q.pagenum = q.pagenum === 1 ? 1 : q.pagenum - 1
+    //         }
+    //         layer.close(index);
+    //     })
+
+
+    // })
+    // 点击编辑按钮 获取对应按钮id
+    $('tbody').on('click', '#btn-edit', function () {
+        let Id = $(this).attr('data-id')
+        localStorage.setItem("id", Id)
+    })
 })
